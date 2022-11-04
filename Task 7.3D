@@ -2,7 +2,7 @@ from tkinter import*
 import tkinter.font
 from gpiozero import LED
 import RPi.GPIO
-from tkinter import ttk
+from tkinter
 import time
 import RPi.GPIO as GPIO
 RPi.GPIO.setmode(RPi.GPIO.BCM)
