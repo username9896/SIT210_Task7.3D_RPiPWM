@@ -16,8 +16,8 @@ GPIO.setup(12, GPIO.OUT)              # setting the 12 pin as output pin which i
 led = GPIO.PWM(12, 500)               # setting the pin mode which gives variable frequency and then setting the duty cycle
 led.start(0)                          # initial state of LED is LOW by giving the zero value to it
 
-GPIO.setup(GPIO_TRIGGER, GPIO.OUT)    # Setting the Trigger pin as 
-GPIO.setup(GPIO_ECHO, GPIO.IN)
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)    # Setting the Trigger pin as output pin
+GPIO.setup(GPIO_ECHO, GPIO.IN)        # Setting the echo pin as input pin
 
 def Distance():
     GPIO.output(GPIO_TRIGGER, True)
@@ -35,20 +35,20 @@ def Distance():
         TimeAtStop = time.time()
  
     TimeElapsed = TimeAtStop - TimeAtStart
-    distance = (TimeElapsed * 34300) / 2
+    distance = (TimeElapsed * 34300) / 2             # calculates the distance
  
-    return int(distance)
+    return int(distance)                             # return the distance as the int type
 
-try:
+try:                                         # it test our system code that we have written inside try
     while True:
-        dis = Distance()
-        print ("Measured Distance = " + str(dis) + " cm")
-        if dis < 50:
+        dis = Distance()                            # This is used to get the data from the Distance function
+        print ("Measured Distance = " + str(dis) + " cm")           # prints the string which is written inside this command
+        if dis < 50:                             # If distance is less than 50 then if condition willl execute
                 led.ChangeDutyCycle((50 - dis)*2)
         else:
-            led.start(0)
+            led.start(0)                    # setting the brightness of LED as 0
 
-        time.sleep(1)
+        time.sleep(1)                       # giving a delay of 1 second
  
-except KeyboardInterrupt:
-    GPIO.cleanup()
+except KeyboardInterrupt:                   # throw an error if try doesn't execute
+    GPIO.cleanup()                          # it will clean all the ports that we have used
