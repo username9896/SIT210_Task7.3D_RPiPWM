@@ -16,7 +16,7 @@ GPIO.setup(12, GPIO.OUT)              # setting the 12 pin as output pin which i
 led = GPIO.PWM(12, 500)               # setting the pin mode which gives variable frequency and then setting the duty cycle
 led.start(0)                          # initial state of LED is LOW by giving the zero value to it
 
-GPIO.setup(GPIO_TRIGGER, GPIO.OUT)    # 
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)    # Setting the Trigger pin as 
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 def Distance():
