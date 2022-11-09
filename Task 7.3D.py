@@ -1,21 +1,22 @@
 from tkinter import*
-import tkinter.font
+import tkinter.font                      # importing the font library for giving the different styles to the font
 from gpiozero import LED
 import RPi.GPIO
 from tkinter
-import time
+import time                              # import time library to get the current time in seconds, minutes, hours
 import RPi.GPIO as GPIO
-RPi.GPIO.setmode(RPi.GPIO.BCM)
+RPi.GPIO.setmode(RPi.GPIO.BCM)           # setting the pin mode system as BCM board in which we will direct refer to the GPIO pins
 
+# defines the pins the ultrasonic sensor
 GPIO_TRIGGER = 18
 GPIO_ECHO = 24
 
-GPIO.setup(12, GPIO.OUT)
+GPIO.setup(12, GPIO.OUT)              # setting the 12 pin as output pin which is PWM pin
 
-led = GPIO.PWM(12, 500)
-led.start(0)
+led = GPIO.PWM(12, 500)               # setting the pin mode which gives variable frequency and then setting the duty cycle
+led.start(0)                          # initial state of LED is LOW by giving the zero value to it
 
-GPIO.setup(GPIO_TRIGGER, GPIO.OUT)
+GPIO.setup(GPIO_TRIGGER, GPIO.OUT)    # 
 GPIO.setup(GPIO_ECHO, GPIO.IN)
 
 def Distance():
